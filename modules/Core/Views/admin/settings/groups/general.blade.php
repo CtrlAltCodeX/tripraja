@@ -257,6 +257,7 @@
     </div>
 </div>
 <hr>
+
 <div class="row">
     <div class="col-sm-4">
         <h3 class="form-group-title">{{__("Page contact settings")}}</h3>
@@ -296,6 +297,79 @@
         </div>
     </div>
 </div>
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="form-group-title"><?php echo e(__("Disable flight module?")); ?></h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel">
+            <div class="panel-title"><strong><?php echo e(__("Disable flight module")); ?></strong></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="form-controls">
+                    <label><input type="checkbox" name="flight_disable" value="1" <?php if(setting_item('flight_disable')): ?> checked <?php endif; ?> > <?php echo e(__('Yes, please disable it')); ?></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="form-group-title">{{__("Disable car module?")}}</h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel">
+            <div class="panel-title"><strong>{{__("Disable car module")}}</strong></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="form-controls">
+                    <label><input type="checkbox" name="car_disable" value="1" @if(setting_item('car_disable')) checked @endif > {{__('Yes, please disable it')}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="form-group-title">{{__("Disable space module?")}}</h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel">
+            <div class="panel-title"><strong>{{__("Disable space module")}}</strong></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="form-controls">
+                    <label><input type="checkbox" name="space_disable" value="1" @if(setting_item('space_disable')) checked @endif > {{__('Yes, please disable it')}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="form-group-title">{{__("Disable boat module?")}}</h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel">
+            <div class="panel-title"><strong>{{__("Disable boat module")}}</strong></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="form-controls">
+                    <label><input type="checkbox" name="boat_disable" value="1" @if(setting_item('boat_disable')) checked @endif > {{__('Yes, please disable it')}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @push('js')
     <script src="{{asset('libs/ace/src-min-noconflict/ace.js')}}" type="text/javascript" charset="utf-8"></script>
     <script>

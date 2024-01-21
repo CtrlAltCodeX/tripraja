@@ -49,7 +49,11 @@
                         'page_contact_sub_title',
                         'page_contact_desc',
                         'page_contact_image',
-                        'home_hotel_id'
+                        'home_hotel_id',
+                        'flight_disable',
+                        'car_disable',
+                        'space_disable',
+                        'boat_disable'
 					],
                     'filter_demo_mode'=>[
                         'home_page_id',
