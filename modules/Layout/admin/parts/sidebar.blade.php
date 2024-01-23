@@ -215,8 +215,9 @@ $boatDisableSetting = DB::table('core_settings')
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
         <ul class="children">
             @foreach ($menuItem['children'] as $menuItem2)
-            @if ($flightDisableSetting)
-            @if($menuItem2['title'] !== 'Flight Settings')
+            @switch($menuItem2['title'])
+            @case('Flight Settings')
+            @if (!$flightDisableSetting)
             <li class="{{ $menuItem['class'] }}">
                 <a href="{{ url($menuItem2['url']) }}">
                     @if (!empty($menuItem2['icon']))
@@ -226,7 +227,10 @@ $boatDisableSetting = DB::table('core_settings')
                 </a>
             </li>
             @endif
-            @else
+            @break
+
+            @case('Car Settings')
+            @if (!$carDisableSetting)
             <li class="{{ $menuItem['class'] }}">
                 <a href="{{ url($menuItem2['url']) }}">
                     @if (!empty($menuItem2['icon']))
@@ -236,6 +240,44 @@ $boatDisableSetting = DB::table('core_settings')
                 </a>
             </li>
             @endif
+            @break
+
+            @case('Space Settings')
+            @if (!$spaceDisableSetting)
+            <li class="{{ $menuItem['class'] }}">
+                <a href="{{ url($menuItem2['url']) }}">
+                    @if (!empty($menuItem2['icon']))
+                    <i class="{{ $menuItem2['icon'] }}"></i>
+                    @endif
+                    {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                </a>
+            </li>
+            @endif
+            @break
+
+            @case('Boat Settings')
+            @if (!$boatDisableSetting)
+            <li class="{{ $menuItem['class'] }}">
+                <a href="{{ url($menuItem2['url']) }}">
+                    @if (!empty($menuItem2['icon']))
+                    <i class="{{ $menuItem2['icon'] }}"></i>
+                    @endif
+                    {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                </a>
+            </li>
+            @endif
+            @break
+
+            @default
+            <li class="{{ $menuItem['class'] }}">
+                <a href="{{ url($menuItem2['url']) }}">
+                    @if (!empty($menuItem2['icon']))
+                    <i class="{{ $menuItem2['icon'] }}"></i>
+                    @endif
+                    {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                </a>
+            </li>
+            @endswitch
             @endforeach
         </ul>
         @endif
