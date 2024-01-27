@@ -3535,14 +3535,21 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 1199px) {
   .header .header-menu {
     position: fixed;
-    bottom: 0;
-    left: 0;
+    top: 0;
+    left: -100%;
     z-index: 10;
-    width: 100vw;
-    height: calc(100vh - 80px);
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 85vw;
+    height: 100vh;
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
     opacity: 0;
     pointer-events: none;
+  }
+
+  .header-menu.is-menu-active {
+      top:80px;
+      left: 0;
+      opacity: 1;
+      pointer-events: auto;
   }
   .header .header-menu.is-menu-active {
     opacity: 1;

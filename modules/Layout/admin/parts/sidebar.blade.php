@@ -213,31 +213,73 @@ $boatDisableSetting = DB::table('core_settings')
         </a>
         @if (!empty($menuItem['children']))
         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
-        <ul class="children">
-            @foreach ($menuItem['children'] as $menuItem2)
-            @if ($flightDisableSetting)
-            @if($menuItem2['title'] !== 'Flight Settings')
-            <li class="{{ $menuItem['class'] }}">
-                <a href="{{ url($menuItem2['url']) }}">
-                    @if (!empty($menuItem2['icon']))
-                    <i class="{{ $menuItem2['icon'] }}"></i>
-                    @endif
-                    {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
-                </a>
-            </li>
-            @endif
-            @else
-            <li class="{{ $menuItem['class'] }}">
-                <a href="{{ url($menuItem2['url']) }}">
-                    @if (!empty($menuItem2['icon']))
-                    <i class="{{ $menuItem2['icon'] }}"></i>
-                    @endif
-                    {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
-                </a>
-            </li>
-            @endif
-            @endforeach
-        </ul>
+            <ul class="children">
+                @foreach ($menuItem['children'] as $menuItem2)
+                @switch($menuItem2['title'])
+                @case('Flight Settings')
+                @if (!$flightDisableSetting)
+                <li class="{{ $menuItem['class'] }}">
+                    <a href="{{ url($menuItem2['url']) }}">
+                        @if (!empty($menuItem2['icon']))
+                        <i class="{{ $menuItem2['icon'] }}"></i>
+                        @endif
+                        {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                    </a>
+                </li>
+                @endif
+                @break
+
+                @case('Car Settings')
+                @if (!$carDisableSetting)
+                <li class="{{ $menuItem['class'] }}">
+                    <a href="{{ url($menuItem2['url']) }}">
+                        @if (!empty($menuItem2['icon']))
+                        <i class="{{ $menuItem2['icon'] }}"></i>
+                        @endif
+                        {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                    </a>
+                </li>
+                @endif
+                @break
+
+                @case('Space Settings')
+                @if (!$spaceDisableSetting)
+                <li class="{{ $menuItem['class'] }}">
+                    <a href="{{ url($menuItem2['url']) }}">
+                        @if (!empty($menuItem2['icon']))
+                        <i class="{{ $menuItem2['icon'] }}"></i>
+                        @endif
+                        {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                    </a>
+                </li>
+                @endif
+                @break
+
+                @case('Boat Settings')
+                @if (!$boatDisableSetting)
+                <li class="{{ $menuItem['class'] }}">
+                    <a href="{{ url($menuItem2['url']) }}">
+                        @if (!empty($menuItem2['icon']))
+                        <i class="{{ $menuItem2['icon'] }}"></i>
+                        @endif
+                        {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                    </a>
+                </li>
+                @endif
+                @break
+
+                @default
+                <li class="{{ $menuItem['class'] }}">
+                    <a href="{{ url($menuItem2['url']) }}">
+                        @if (!empty($menuItem2['icon']))
+                        <i class="{{ $menuItem2['icon'] }}"></i>
+                        @endif
+                        {!! clean($menuItem2['title'], ['Attr.AllowedClasses' => null]) !!}
+                    </a>
+                </li>
+                @endswitch
+                @endforeach
+            </ul>
         @endif
     </li>
     @endforeach
