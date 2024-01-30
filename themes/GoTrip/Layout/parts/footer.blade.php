@@ -41,6 +41,48 @@ if($footerStyle == "style_6"){
     </div>
 </section>
 
+<!-- start web share api -->
+<head>
+    <title>Web Share API Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body style="text-align: center;">
+	<h1 style="color: green;">Whatsapp</h1>
+	<h2>Web Share API Demonstration</h2>
+    
+	<button id="shareBtn">
+        <i class="fab fa-whatsapp"></i> Share on WhatsApp
+    </button>
+
+	<script>
+		document.querySelector('#shareBtn')
+		.addEventListener('click', event => {
+			if (navigator.share) {
+				navigator.share({
+					title: 'w3schools',
+					// URL to share
+					url: 'https://www.w3schools.com/'
+				}).then(() => {
+					console.log('Thanks for sharing!');
+				}).catch(err => {
+
+					// Handle errors, if occurred
+					console.log(
+					"Error while using Web share API:");
+					console.log(err);
+				});
+			} else {
+
+				// Alerts user if API not available 
+				alert("Browser doesn't support this API !");
+			}
+		})
+	</script>
+</body>
+
+</html>
+<!-- end web share aoi -->
+
 @include('Layout::parts.footer-style.index')
 @include('Layout::parts.login-register-modal')
 @include('Popup::frontend.popup')
