@@ -15,3 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix'=>config('page.page_route_prefix')],function(){
     Route::get('/{slug?}','PageController@detail')->name('page.detail');// Detail
 });
+
+
+// Route::group([], function () {
+//     Route::get('/{slug?}', 'PageController@detail')->name('page.detail'); // Detail
+// });
