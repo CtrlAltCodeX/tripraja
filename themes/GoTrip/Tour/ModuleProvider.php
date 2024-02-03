@@ -12,6 +12,7 @@ use Themes\GoTrip\Tour\Blocks\FormSearchTour;
 use Themes\GoTrip\Tour\Blocks\ListFeaturedItem;
 use Themes\GoTrip\Tour\Blocks\ListTours;
 use Themes\GoTrip\Tour\Blocks\OurTeam;
+use Themes\GoTrip\Tour\Blocks\OurVijay;
 use Themes\GoTrip\Tour\Blocks\Testimonial;
 use Themes\GoTrip\Tour\Blocks\TourDeals;
 use Themes\GoTrip\Tour\Blocks\TourTypes;
@@ -30,6 +31,7 @@ class ModuleProvider extends ServiceProvider
             'call_to_action'=>CallToAction::class,
             'list_featured_item'=>ListFeaturedItem::class,
             'our_team'=>OurTeam::class,
+            'our_vijay'=>OurVijay::class,
             'form_search_tour' => FormSearchTour::class,
             'list_tours' => ListTours::class,
             'tour_types' => TourTypes::class,
