@@ -7,7 +7,7 @@
 </div>
 @endif
 
-<form action="{{url(app_get_locale(false,false,'/').config('tour.tour_route_prefix'))}}" method="get" class="bravo_form_filter lg:d-none" data-x="filterPopup" data-x-toggle="-is-active">
+<form id="subfrm" action="{{url(app_get_locale(false,false,'/').config('tour.tour_route_prefix'))}}" method="get" class="bravo_form_filter lg:d-none" data-x="filterPopup" data-x-toggle="-is-active">
     @if( !empty(Request::query('location_id')) )
     <input type="hidden" name="location_id" value="{{Request::query('location_id')}}">
     @endif
@@ -122,8 +122,6 @@
                     </div>
                 </div>
                 @endforeach
-
-
             </div>
         </div>
         @endif
@@ -131,3 +129,13 @@
         <button type="submit" class="flex-center bg-blue-1 rounded-4 px-3 py-1 mt-3 text-12 fw-600 text-white btn-apply-price-range mt-20">{{__("APPLY")}}</button>
     </aside>
 </form>
+
+
+@push('js')
+<script>
+function handleFormSubmit(event) {
+    event.preventDefault();
+}
+
+</script>
+@endpush

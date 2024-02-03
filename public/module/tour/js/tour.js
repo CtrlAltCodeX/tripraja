@@ -33,8 +33,26 @@ jQuery(function ($) {
             });
         });
     });
-    $(".bravo_form_filter input[type=checkbox]").change(function () {
-        $(this).closest(".bravo_form_filter").submit();
+    $(".bravo_form_filter input[type=checkbox]").change(function (event) {
+        event.preventDefault(); // Prevent default form submission
+        updateForm();
     });
+
+    function updateForm() {
+        var formData = $(".bravo_form_filter").serialize(); // Serialize form data
+
+        $.ajax({
+            type: "GET",
+            url: $(".bravo_form_filter").attr("action"),
+            data: formData,
+            success: function (response) {
+                // Handle the response if needed
+                console.log(response);
+            },
+            error: function (error) {
+                console.error(error);
+            },
+        });
+    }
 
 });
