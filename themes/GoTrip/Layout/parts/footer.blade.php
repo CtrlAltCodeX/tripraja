@@ -72,9 +72,9 @@ if ($footerStyle == 'style_6') {
             .addEventListener('click', event => {
                 if (navigator.share) {
                     navigator.share({
-                        title: 'goto',
+                        title: document.title,
                         // URL to share
-                        url: 'window.location.href'
+                        url: window.location.href
                     }).then(() => {
                         console.log('Thanks for sharing!');
                     }).catch(err => {
