@@ -1,4 +1,8 @@
 <style>
+    .coupon .container {
+        width: 75%;
+    }
+
     .coupon .coupon-container {
         width: 100%;
         height: 100vh;
@@ -23,7 +27,7 @@
         background: #f2f8fa;
         color: #000;
         text-align: center;
-        padding: 40px 80px;
+        padding: 20px;
         border-radius: 15px;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
         position: relative;
@@ -37,30 +41,14 @@
 
     }
 
-    .coupon-card h3 {
-        font-size: 28px;
-        font-weight: 400;
-        line-height: 50px;
-        padding: 61px 52px 18px 0px;
-        margin: 25px 12px 24px -150px;
-    }
-
     .coupon-card p {
         font-size: 15px;
 
     }
 
-    .coupon-row {
-        display: flex;
-        align-items: center;
-        margin: 25px auto;
-        width: fit-content;
-
-    }
-
     #cpnCode {
         border: 1px dashed #fff;
-        padding: 10px 20px;
+        /* padding: 10px 20px; */
         border-right: 0;
 
     }
@@ -95,28 +83,18 @@
 </style>
 
 <section class="bravo-our-team layout-pt-lg layout-pb-lg coupon">
-        <div class="container">
-            <div class="coupon-card row">
-                <div class="col-md-4">
-                    <img src="{{ asset('images/coupan.jpeg') }}" class="logo">
-                </div>
-                <div class="col-md-4">
-                    <a href="{{ $link_title ?? '' }}">
-                        <h3>{{ $title ?? '' }}</h3>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <div class="coupon-row">
-                        {{-- <input type="text" value="{{ $desc}}"> --}}
-                        <span id="cpnCode">{{ $desc ?? '' }}</span>
-                        <span id="cpnBtn">Copy Code</span>
-                    </div>
-                </div>
-                <div class="col-md-12"> <!-- Full width for Valid Till section -->
-                    <p>Valid Till: 20 Dec, 2024</p>
-                </div>
+    <div class="container">
+        <div class="coupon-card d-flex justify-content-around align-items-center">
+            <img src="{{ asset('images/coupan.jpeg') }}" class="logo">
+            <a href="{{ $link_title ?? '' }}" class="text-left">
+                <h3>{{ $title ?? '' }}</h3>
+                <span id="cpnCode">{{ $desc ?? '' }}</span>
+            </a>
+            <div class="coupon-row">
+                <span id="cpnBtn">Copy Code</span>
             </div>
         </div>
+    </div>
 </section>
 
 <script>

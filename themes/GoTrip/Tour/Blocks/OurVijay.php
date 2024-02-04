@@ -35,7 +35,7 @@ class OurVijay extends BaseBlock
 
     public function getName()
     {
-        return __('Our Vijay');
+        return __('Coupon Promo');
     }
 
     public function content($model = [])
