@@ -72,9 +72,9 @@ if ($footerStyle == 'style_6') {
             .addEventListener('click', event => {
                 if (navigator.share) {
                     navigator.share({
-                        title: 'w3schools',
+                        title: 'goto',
                         // URL to share
-                        url: 'https://www.w3schools.com/'
+                        url: 'window.location.href'
                     }).then(() => {
                         console.log('Thanks for sharing!');
                     }).catch(err => {
