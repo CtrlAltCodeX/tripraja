@@ -16,60 +16,18 @@ class OurVijay extends BaseBlock
                     'label'     => __('Title')
                 ],
                 [
-                    'id'        => 'subtitle',
+                    'id'        => 'link_title',
                     'type'      => 'input',
                     'inputType' => 'text',
-                    'label'     => __('Subtitle')
-                ],
-
-                [
-                    'id'            => 'style',
-                    'type'          => 'radios',
-                    'label'         => __('Style Background'),
-                    'values'        => [
-                        [
-                            'value'   => '',
-                            'name' => __("Style 1")
-                        ],
-                    ]
+                    'label'     => __('Term Link')
                 ],
                 [
-                    'id'          => 'list_item',
-                    'type'        => 'listItem',
-                    'label'       => __('List Item(s)'),
-                    'title_field' => 'title',
-                    'settings'    => [
-                        [
-                            'id'        => 'name',
-                            'type'      => 'input',
-                            'inputType' => 'text',
-                            'label'     => __('Name')
-                        ],
-                        [
-                            'id'        => 'job',
-                            'type'      => 'input',
-                            'inputType' => 'text',
-                            'label'     => __('Job')
-                        ],
-                        [
-                            'id'    => 'avatar',
-                            'type'  => 'uploader',
-                            'label' => __('Avatar Image')
-                        ],
-                    ]
-                ],
-                [
-                    'id'        => 'class',
+                    'id'        => 'desc',
                     'type'      => 'input',
                     'inputType' => 'text',
-                    'label'     => __('Wrapper Class (opt)')
+                    'label'     => __('Coupan Code')
                 ],
-                [
-                    'id'        => 'id',
-                    'type'      => 'input',
-                    'inputType' => 'text',
-                    'label'     => __('Wrapper Id (opt)')
-                ]
+                
             ],
             'category'=>__("Other Block")
         ];
@@ -82,9 +40,9 @@ class OurVijay extends BaseBlock
 
     public function content($model = [])
     {
-        if (empty($model['style'])) {
-            $model['style'] = 'style_1';
-        }
+        // if (empty($model['style'])) {
+        //     $model['style'] = 'style_1';
+        // }
         return view('Template::frontend.blocks.text-vijay.index', $model);
     }
 }

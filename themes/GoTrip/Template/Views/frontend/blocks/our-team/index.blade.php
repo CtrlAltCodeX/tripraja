@@ -3,8 +3,6 @@
         <div class="row y-gap-20 justify-between items-end">
             <div class="col-auto">
                 <div class="sectionTitle -md">
-                    <h2 class="sectionTitle__title">{{ $title ?? "" }}</h2>
-                    <p class=" sectionTitle__text mt-5 sm:mt-0">{{ $subtitle ?? "" }}</p>
                 </div>
             </div>
             <div class="col-auto">
