@@ -3,15 +3,25 @@
         width: 100%;
         height: 100vh;
         /* background: #f0fff3; */
+        /* position: relative; */
+        /* border-radius: var(--border-radius-md); */
+        background-color: #f2f8fa;
+        /* padding: var(--space-6); */
+        /* overflow: hidden; */
         display: flex;
         align-items: center;
         justify-content: center;
 
     }
 
+    .col-md-4 a h3 {
+        white-space: nowrap;
+    }
+
     .coupon .coupon-card {
-        background: linear-gradient(135deg, #7158fe, #9d4de6);
-        color: #fff;
+        /* background: linear-gradient(135deg, #7158fe, #9d4de6); */
+        background: #f2f8fa;
+        color: #000;
         text-align: center;
         padding: 40px 80px;
         border-radius: 15px;
@@ -30,8 +40,9 @@
     .coupon-card h3 {
         font-size: 28px;
         font-weight: 400;
-        line-height: 40px;
-
+        line-height: 50px;
+        padding: 61px 52px 18px 0px;
+        margin: 25px 12px 24px -150px;
     }
 
     .coupon-card p {
@@ -84,50 +95,28 @@
 </style>
 
 <section class="bravo-our-team layout-pt-lg layout-pb-lg coupon">
-    <div class="container">
-        <div class="row y-gap-20 justify-between items-end">
-            <div class="col-auto">
-                <div class="sectionTitle -md">
-                    {{-- <h2 class="sectionTitle__title">{{ $title ?? "" }}</h2> --}}
-                    {{-- <p class=" sectionTitle__text mt-5 sm:mt-0">{{ $subtitle ?? "" }}</p> --}}
-                </div>
-            </div>
-        </div>
         <div class="container">
-            <div class="coupon-card">
-                {{-- <img src="https://i.postimg.cc/KvTqpZq9/uber.png" class="logo"> --}}
-                <a href="{{ $link_title ?? ""}}">
-                    <h3>{{ $title ?? "" }}</h3>
-                </a>
-                <div class="coupon-row">
-                    {{-- <input type="text" value="{{ $desc}}"> --}}
-                    <span id="cpnCode">{{ (!$desc=='') ? $desc : "hghghg"}}</span>
-                    <span id="cpnBtn">Copy Code</span>
+            <div class="coupon-card row">
+                <div class="col-md-4">
+                    <img src="{{ asset('images/coupan.jpeg') }}" class="logo">
                 </div>
-                <p>Valid Till: 20Dec, 2024</p>
-                <div class="circle1"></div>
-                <div class="circle2"></div>
+                <div class="col-md-4">
+                    <a href="{{ $link_title ?? '' }}">
+                        <h3>{{ $title ?? '' }}</h3>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="coupon-row">
+                        {{-- <input type="text" value="{{ $desc}}"> --}}
+                        <span id="cpnCode">{{ $desc ?? '' }}</span>
+                        <span id="cpnBtn">Copy Code</span>
+                    </div>
+                </div>
+                <div class="col-md-12"> <!-- Full width for Valid Till section -->
+                    <p>Valid Till: 20 Dec, 2024</p>
+                </div>
             </div>
         </div>
-
-        {{-- @if(!empty($list_item))
-            <div class="overflow-hidden pt-40 js-section-slider" data-gap="30" data-slider-cols="xl-5 lg-4 md-2 sm-2 base-1" data-nav-prev="js-team-prev" data-pagination="js-team-pag" data-nav-next="js-team-next">
-            <div class="swiper-wrapper">
-                @foreach($list_item as $item)
-                    <div class="swiper-slide">
-                        <div class="">
-                            <img src="{{ get_file_url($item['avatar'],'full') }}" alt="{{ $item['name'] }}" class="rounded-4 col-12">
-        <div class="mt-10">
-            <div class="text-18 lh-15 fw-500">{{ $item['name'] }}</div>
-            <div class="text-14 lh-15">{{ $item['job'] }}</div>
-        </div>
-    </div>
-    </div>
-    @endforeach
-    </div>
-    </div>
-    @endif --}}
-    </div>
 </section>
 
 <script>
