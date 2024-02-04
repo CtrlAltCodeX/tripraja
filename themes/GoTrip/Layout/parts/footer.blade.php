@@ -8,14 +8,20 @@ if ($footerStyle == 'style_6') {
 }
 ?>
 <style>
-    img {
+    /* img {
         max-width: 50px;
         height: auto;
+    } */
+
+    #shareBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 50px;
+        z-index: 9999;
     }
 </style>
 
-<section
-    class="layout-pt-md layout-pb-md mailchimp {{ $mailchimp_classes }} @if ((!empty($row) && !empty($row->disable_subscribe_default)) || !empty($disable_subscribe_default)) d-none @endif">
+<section class="layout-pt-md layout-pb-md mailchimp {{ $mailchimp_classes }} @if ((!empty($row) && !empty($row->disable_subscribe_default)) || !empty($disable_subscribe_default)) d-none @endif">
     <div class="container">
         <div class="row y-gap-30 justify-between items-center">
             <div class="col-auto">
@@ -32,12 +38,10 @@ if ($footerStyle == 'style_6') {
             </div>
 
             <div class="col-auto">
-                <form action="{{ route('newsletter.subscribe') }}"
-                    class="subcribe-form bravo-subscribe-form bravo-form single-field -w-410 d-flex x-gap-10 y-gap-20">
+                <form action="{{ route('newsletter.subscribe') }}" class="subcribe-form bravo-subscribe-form bravo-form single-field -w-410 d-flex x-gap-10 y-gap-20">
                     @csrf
                     <div>
-                        <input class="bg-white h-60 email-input" type="text" name="email"
-                            placeholder="{{ __('Your Email') }}">
+                        <input class="bg-white h-60 email-input" type="text" name="email" placeholder="{{ __('Your Email') }}">
                     </div>
                     <div>
                         <button class="button -md h-60 {{ $button_classes }}">
@@ -60,7 +64,7 @@ if ($footerStyle == 'style_6') {
 
 <body style="text-align: center;">
     <button id="shareBtn">
-        <p id=watsp><img src="{{ asset('images/share.png') }}" alt="WhatsApp Logo"> Share</p>
+        <p id=watsp><img src="{{ asset('images/share.png') }}" alt="WhatsApp Logo" width="50"></p>
     </button>
 
     <script>
@@ -96,7 +100,7 @@ if ($footerStyle == 'style_6') {
 @include('Layout::parts.login-register-modal')
 @include('Popup::frontend.popup')
 @if (Auth::id())
-    @include('Media::browser')
+@include('Media::browser')
 @endif
 
 {!! App\Helpers\MapEngine::scripts() !!}
@@ -112,24 +116,25 @@ if ($footerStyle == 'style_6') {
 <script type="text/javascript" src="{{ asset('themes/gotrip/js/main.js?_ver=' . config('app.asset_version')) }}">
 </script>
 @if (Auth::id())
-    <script src="{{ asset('module/media/js/browser.js?_ver=' . config('app.version')) }}"></script>
+<script src="{{ asset('module/media/js/browser.js?_ver=' . config('app.version')) }}"></script>
 @endif
 <script src="{{ asset('libs/carousel-2/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('libs/daterange/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('libs/daterange/daterangepicker.min.js') }}"></script>
 <script src="{{ asset('libs/select2/js/select2.min.js') }}"></script>
 @if (setting_item('cookie_agreement_enable') == 1 and
-        request()->cookie('booking_cookie_agreement_enable') != 1 and
-        !is_api() and
-        !isset($_COOKIE['booking_cookie_agreement_enable']))
-    <div class="booking_cookie_agreement p-3 d-flex fixed-bottom">
-        <div class="content-cookie">{!! clean(setting_item_with_lang('cookie_agreement_content')) !!}</div>
-        <button class="btn save-cookie">{!! clean(setting_item_with_lang('cookie_agreement_button_text')) !!}</button>
-    </div>
-    <script>
-        var save_cookie_url = '{{ route('core.cookie.check') }}';
-    </script>
-    <script src="{{ asset('js/cookie.js?_ver=' . config('app.asset_version')) }}"></script>
+request()->cookie('booking_cookie_agreement_enable') != 1 and
+!is_api() and
+!isset($_COOKIE['booking_cookie_agreement_enable']))
+<div class="booking_cookie_agreement p-3 d-flex fixed-bottom">
+    <div class="content-cookie">{!! clean(setting_item_with_lang('cookie_agreement_content')) !!}</div>
+    <button class="btn save-cookie">{!! clean(setting_item_with_lang('cookie_agreement_button_text')) !!}</button>
+</div>
+<script>
+    var save_cookie_url = '{{ route('
+    core.cookie.check ') }}';
+</script>
+<script src="{{ asset('js/cookie.js?_ver=' . config('app.asset_version')) }}"></script>
 @endif
 
 {{-- home.js --}}
