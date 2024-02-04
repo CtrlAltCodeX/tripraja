@@ -15,6 +15,9 @@ use Themes\GoTrip\Template\Blocks\Subscribe;
 use Themes\GoTrip\Template\Blocks\Terms;
 use Themes\GoTrip\Template\Blocks\TextFeaturedBox;
 use Themes\GoTrip\Template\Blocks\TextImage;
+use Themes\GoTrip\Template\Blocks\TextVijay;
+
+
 
 
 class ModuleProvider extends ServiceProvider
@@ -34,6 +37,7 @@ class ModuleProvider extends ServiceProvider
             'form_search_all_service' => FormSearchAllService::class,
             'text_featured_box' => TextFeaturedBox::class,
             'text_image' => TextImage::class,
+            'text_image' => TextVijay::class,
             //hide block for GoTrip
             'form_search_tour' => null,
             'form_search_space' => null,
